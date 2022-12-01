@@ -16,9 +16,12 @@ fs.readFile("./input.txt", "utf-8", (err, data) => {
   })
 
   const reducedSacks = []
-  numberedSacks.forEach(elfSack => {
+  elfSacksAsNumbers.forEach(elfSack => {
     reducedSacks.push(elfSack.reduce((acc, curr) => acc + curr, 0))
   })
 
   console.log(Math.max(...reducedSacks))
+
+  const topThree = reducedSacks.sort().slice(-4).slice(0, 3);
+  console.log(topThree.reduce((acc, curr) => acc + curr, 0))
 })
